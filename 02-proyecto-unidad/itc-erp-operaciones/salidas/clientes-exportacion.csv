@@ -1,0 +1,5 @@
+id,nombre,email,estado,creado
+4,Asociación Río Claro,admin@rioclaro.example,inactivo,2026-10-25T11:20:31+00:00
+2,Cafetería Horizonte,gestion@horizonte.example,prospecto,2026-10-25T11:20:31+00:00
+1,Nexo Formación S.L.,contacto@nexoformacion.example,activo,2026-10-25T11:20:31+00:00
+3,Talleres Levante,it@tallereslevante.example,activo,2026-10-25T11:20:31+00:00

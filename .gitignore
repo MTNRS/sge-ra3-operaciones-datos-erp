@@ -1,0 +1,4 @@
+data/*.sqlite
+salidas/*
+!salidas/.gitkeep
+__pycache__/
