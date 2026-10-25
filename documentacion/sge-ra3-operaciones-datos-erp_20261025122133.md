@@ -2,14 +2,14 @@
 
 ## Información de generación
 
-- **Fecha:** 2026-10-25 12:20:32 +0100
+- **Fecha:** 2026-10-25 12:21:33 +0100
 - **Usuario:** freak
 - **Equipo:** JARVIS
 - **Sistema operativo:** Windows
 - **Arquitectura:** x86_64
 - **Directorio de ejecución:** `C:/Users/freak/DAM2`
 - **Proyecto documentado:** `C:/Users/freak/Documents/DAM2-entregas/sge-ra3-operaciones-datos-erp`
-- **HMAC-SHA-256 de autenticidad:** `899ca6a76b099d8ccf961c2e0aa2a0dc889c54bab1f243f67f812f1f7ec7d4d9`
+- **HMAC-SHA-256 de autenticidad:** `543bc3c5f1ea0904470418850d4b719a2da503c9975fc9917c93597f75b3e729`
 
 > El HMAC-SHA-256 se calcula sobre el documento completo usando un secreto incluido en el programa y 64 ceros en el propio campo del HMAC. El secreto no se escribe en el informe. Este mecanismo permite comprobar integridad y que el documento fue generado con el mismo secreto.
 
@@ -25,13 +25,7 @@ C:/Users/freak/Documents/DAM2-entregas/sge-ra3-operaciones-datos-erp
 ├── 02-proyecto-unidad
 │   └── itc-erp-operaciones
 │       ├── OPERACIONES.md
-│       ├── data
-│       │   └── itc_erp_ra3.sqlite [SQLite]
-│       ├── erp_operaciones.py
-│       └── salidas
-│           ├── .gitkeep
-│           ├── clientes-exportacion.csv
-│           └── informe-clientes.md
+│       └── erp_operaciones.py
 ├── 03-criterios-evaluacion
 │   └── RESPUESTAS-CRITERIOS.md
 └── README.md
@@ -41,27 +35,7 @@ C:/Users/freak/Documents/DAM2-entregas/sge-ra3-operaciones-datos-erp
 
 Esta sección documenta únicamente el esquema de las bases SQLite detectadas. No se vuelcan registros ni datos de usuario.
 
-### 02-proyecto-unidad/itc-erp-operaciones/data/itc_erp_ra3.sqlite
-
-```text
-02-proyecto-unidad/itc-erp-operaciones/data/itc_erp_ra3.sqlite
-├── tabla clientes
-│   ├── columnas
-│   │   ├── id INTEGER PRIMARY KEY
-│   │   ├── nombre TEXT NOT NULL
-│   │   ├── email TEXT NOT NULL
-│   │   ├── estado TEXT NOT NULL
-│   │   └── creado TEXT NOT NULL
-│   └── índices
-│       ├── idx_clientes_estado: estado
-│       └── sqlite_autoindex_clientes_1 (UNIQUE): email
-└── tabla operaciones
-    └── columnas
-        ├── momento TEXT
-        ├── accion TEXT
-        └── detalle TEXT
-```
-
+No se han encontrado bases SQLite con extensiones .db, .sqlite o .sqlite3.
 
 ## Código (intercalado)
 
@@ -175,20 +149,6 @@ def rendimiento():
 if __name__=="__main__":
     p=argparse.ArgumentParser();s=p.add_subparsers(dest="cmd",required=True)
     s.add_parser("inicializar");q=s.add_parser("consultar");q.add_argument("--estado",choices=("activo","prospecto","inactivo"));a=s.add_parser("alta");a.add_argument("nombre");a.add_argument("email");a.add_argument("--estado",default="prospecto",choices=("activo","prospecto","inactivo"));i=s.add_parser("importar");i.add_argument("--archivo",required=True);s.add_parser("informe");s.add_parser("exportar");s.add_parser("extraer");s.add_parser("rendimiento");x=p.parse_args();{"inicializar":init,"consultar":lambda:query(x.estado),"alta":lambda:alta(x.nombre,x.email,x.estado),"importar":lambda:importar(x.archivo),"informe":informe,"exportar":exportar,"extraer":extraer,"rendimiento":rendimiento}[x.cmd]()
-```
-#### data
-#### salidas
-**informe-clientes.md**
-```markdown
-# Informe de clientes ITC ERP
-
-| Estado | Total |
-|---|---:|
-| activo | 2 |
-| inactivo | 1 |
-| prospecto | 1 |
-
-Generado: 2026-10-25T11:20:32+00:00
 ```
 ## 03-criterios-evaluacion
 **RESPUESTAS-CRITERIOS.md**

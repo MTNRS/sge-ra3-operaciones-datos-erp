@@ -1,4 +1,6 @@
 **/data/*.sqlite
 **/salidas/*
 !**/salidas/.gitkeep
+!**/data/.jocarsa-documentacion-exclude
+!**/salidas/.jocarsa-documentacion-exclude
 __pycache__/
