@@ -10,7 +10,17 @@ ficticios/anonimizados.
 - `02-proyecto-unidad`: herramienta de operaciones ITC ERP.
 - `03-criterios-evaluacion`: evidencias de cada criterio.
 
-## Ejecución
+## Panel gráfico
+
+```powershell
+cd 02-proyecto-unidad/itc-erp-operaciones
+python servidor.py
+```
+
+Abrir `http://127.0.0.1:8090/panel.html`. El panel reúne consulta y filtro,
+formulario de alta, validación de CSV, informe, exportación y rendimiento.
+
+## Ejecución por consola
 
 ```powershell
 cd 02-proyecto-unidad/itc-erp-operaciones
